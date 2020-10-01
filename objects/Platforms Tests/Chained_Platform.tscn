@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Actors/Chain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/Platform.tscn" type="PackedScene" id=2]
+
+[node name="Chained_Platform" type="RigidBody2D"]
+
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 326.668, 193.114 )
+
+[node name="Chain" parent="." instance=ExtResource( 1 )]
+position = Vector2( 326.668, 132.149 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( 326.492, 193.637 )
+node_a = NodePath("../Platform")
+node_b = NodePath("../Chain")
